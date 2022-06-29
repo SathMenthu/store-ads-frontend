@@ -1,0 +1,9 @@
+button {
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-info-light);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.2rem 1.2rem;
+  cursor: pointer;
+  border-radius: var(--border-radius-1);
+}
