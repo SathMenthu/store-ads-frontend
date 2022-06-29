@@ -1,30 +1,20 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { testInterface } from "types";
 
-function App() {
-  const foobar: testInterface = {
-    id: "123",
-  };
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <h1>
+          <strong>HEXEM</strong> Ogłoszenia
+        </h1>
+        <button>Dodaj ogłoszenie</button>
+        <div className="search">
+          <input type="text" placeholder="Wpisz nazwę ogłoszenia..." />
+          <button>Szukaj</button>
+        </div>
       </header>
-    </div>
+      <div className="container">...</div>
+    </>
   );
-}
-
-export default App;
+};
