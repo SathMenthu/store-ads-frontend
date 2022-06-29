@@ -1,5 +1,8 @@
 .container {
-  background-color: red;
   width: 100vw;
   height: calc(100vh - 5rem);
+}
+
+.leaflet-container {
+  height: 100%;
 }
