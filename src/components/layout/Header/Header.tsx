@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useContext, useState } from "react";
-import { Button } from "../../common/Button/Button";
+import { Btn } from "../../common/Button/Btn";
 
 import "./Header.css";
 import { SearchContext } from "../../../contexts/search.context";
@@ -17,7 +17,7 @@ export const Header = () => {
       <h1>
         <strong>HEXEM</strong> Ogłoszenia
       </h1>
-      <Button text={"Dodaj ogłoszenie"} />
+      <Btn to="/add" text={"Dodaj Ogłoszenie"} />
       <form className="search" onSubmit={setSearchFromLocalState}>
         <input
           type="text"
@@ -25,7 +25,7 @@ export const Header = () => {
           onChange={(e) => setInputVal(e.target.value)}
           placeholder="Wpisz nazwę ogłoszenia..."
         />
-        <Button text={"Szukaj"} />
+        <Btn text={"Szukaj"} />
       </form>
     </header>
   );

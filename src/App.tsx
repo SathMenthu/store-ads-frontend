@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Header } from "./components/layout/Header/Header";
 import { Container } from "./components/layout/Container/Container";
 import { SearchContext } from "./contexts/search.context";
+import { Routes, Route } from "react-router-dom";
+import { AddForm } from "./components/common/AdForm/AdForm";
 
 export const App = () => {
   const [search, setSearch] = useState("");
@@ -10,7 +12,10 @@ export const App = () => {
     <>
       <SearchContext.Provider value={{ search, setSearch }}>
         <Header />
-        <Container />
+        <Routes>
+          <Route path={"/add"} element={<AddForm />} />
+          <Route path={"/"} element={<Container />} />
+        </Routes>
       </SearchContext.Provider>
     </>
   );
