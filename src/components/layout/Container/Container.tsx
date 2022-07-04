@@ -1,16 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "../../../utils/fix-leaflet-map-icons";
-
+import { SimpleAdEntity } from "types";
 import "leaflet/dist/leaflet.css";
 import "./Container.css";
 import { SearchContext } from "../../../contexts/search.context";
+import { SingleAd } from "./SingleAd";
 
 export const Container = () => {
   const { search } = useContext(SearchContext);
+  const [ads, setAds] = useState<SimpleAdEntity[]>([]);
 
   useEffect(() => {
-    console.log("Make request to backend.");
+    (async () => {
+      const res = await fetch(`http://localhost:3001/ad/search/${search}`);
+      const { ads } = await res.json();
+
+      setAds(ads);
+    })();
   }, [search]);
 
   return (
@@ -23,9 +30,13 @@ export const Container = () => {
             "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> & contributors"
           }
         />
-        <Marker position={[52.1150302, 18.8077103]}>
-          <Popup>Test</Popup>
-        </Marker>
+        {ads.map((ad) => (
+          <Marker key={ad.id} position={[ad.lat, ad.lon]}>
+            <Popup>
+              <SingleAd id={ad.id} />
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </div>
   );

@@ -5,8 +5,8 @@ import "./Header.css";
 import { SearchContext } from "../../../contexts/search.context";
 
 export const Header = () => {
-  const { search, setSearch } = useContext(SearchContext);
-  const [inputVal, setInputVal] = useState(search);
+  const { setSearch } = useContext(SearchContext);
+  const [inputVal, setInputVal] = useState("");
   const setSearchFromLocalState = (e: SyntheticEvent) => {
     e.preventDefault();
     setSearch(inputVal);
