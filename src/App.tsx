@@ -3,7 +3,7 @@ import { Header } from "./components/layout/Header/Header";
 import { Container } from "./components/layout/Container/Container";
 import { SearchContext } from "./contexts/search.context";
 import { Routes, Route } from "react-router-dom";
-import { AddForm } from "./components/common/AdForm/AdForm";
+import { AddForm } from "./components/common/AdForm/AddForm";
 
 export const App = () => {
   const [search, setSearch] = useState("");

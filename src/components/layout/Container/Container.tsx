@@ -1,22 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "../../../utils/fix-leaflet-map-icons";
-import { SimpleAdEntity } from "types";
+import { SimpleAnnouncementEntity } from "types";
 import "leaflet/dist/leaflet.css";
 import "./Container.css";
 import { SearchContext } from "../../../contexts/search.context";
-import { SingleAd } from "./SingleAd";
+import { SingleAnnouncement } from "./SingleAnnouncement";
+import { apiUrl } from "../../../config/api";
 
 export const Container = () => {
   const { search } = useContext(SearchContext);
-  const [ads, setAds] = useState<SimpleAdEntity[]>([]);
+  const [announcements, setAnnouncements] = useState<
+    SimpleAnnouncementEntity[]
+  >([]);
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://localhost:3001/ad/search/${search}`);
-      const { ads } = await res.json();
+      const res = await fetch(`${apiUrl}/announcements/search/${search}`);
+      const { announcements } = await res.json();
 
-      setAds(ads);
+      setAnnouncements(announcements);
     })();
   }, [search]);
 
@@ -30,10 +33,13 @@ export const Container = () => {
             "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> & contributors"
           }
         />
-        {ads.map((ad) => (
-          <Marker key={ad.id} position={[ad.lat, ad.lon]}>
+        {announcements.map((announcement) => (
+          <Marker
+            key={announcement.id}
+            position={[announcement.lat, announcement.lon]}
+          >
             <Popup>
-              <SingleAd id={ad.id} />
+              <SingleAnnouncement id={announcement.id} />
             </Popup>
           </Marker>
         ))}
