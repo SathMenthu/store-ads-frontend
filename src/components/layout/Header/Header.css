@@ -1,5 +1,5 @@
 header {
-  background-color: var(--color-background);
+  background-color: var(--color-dark);
   padding: 1rem;
   color: #ffffff;
   display: flex;
@@ -15,9 +15,8 @@ header h1 {
 header h1 strong {
   background: -webkit-linear-gradient(
     1deg,
-    rgb(24, 24, 114),
-    rgb(30, 94, 124),
-    rgb(65, 155, 65)
+    rgb(38, 162, 220),
+    rgb(117, 222, 117)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -33,4 +32,9 @@ header h1 strong {
   width: 100%;
   padding: 0.5em;
   font-size: 1.1em;
+}
+
+.mainSite {
+  text-decoration: none;
+  color: #ffffff;
 }

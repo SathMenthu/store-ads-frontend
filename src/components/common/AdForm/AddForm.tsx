@@ -61,64 +61,67 @@ export const AddForm = () => {
   }
 
   return (
-    <form className={"add-form"} action={""} onSubmit={saveAnnouncement}>
-      <h1>Dodawanie Ogłoszenia</h1>
-      <p>
-        <label>
-          Nazwa: <br />
-          <input
-            type={"text"}
-            name={"name"}
-            required
-            maxLength={99}
-            value={form.name}
-            onChange={(e) => updateForm("name", e.target.value)}
-          />
-        </label>
-        <label>
-          Opis: <br />
-          <textarea
-            name="description"
-            maxLength={999}
-            value={form.description}
-            onChange={(e) => updateForm("description", e.target.value)}
-          />
-        </label>
-        <label>
-          Price: <br />
-          <input
-            type={"number"}
-            name={"price"}
-            required
-            maxLength={99}
-            value={form.price}
-            onChange={(e) => updateForm("price", Number(e.target.value))}
-          />{" "}
-          <br />
-        </label>
-        <label>
-          Adres URL: <br />
-          <input
-            type={"url"}
-            name={"url"}
-            maxLength={99}
-            value={form.url}
-            onChange={(e) => updateForm("url", e.target.value)}
-          />{" "}
-          <br />
-        </label>
-        <label>
-          Adres Fizyczny na mapie: <br />
-          <input
-            name={"address"}
-            maxLength={99}
-            value={form.address}
-            onChange={(e) => updateForm("address", e.target.value)}
-          />{" "}
-          <br />
-        </label>
-      </p>
-      <Btn text={"Zapisz"} />
-    </form>
+    <div className={"add-form-container"}>
+      <form className={"add-form"} action={""} onSubmit={saveAnnouncement}>
+        <h1>Dodawanie Ogłoszenia</h1>
+        <p>
+          <label>
+            Nazwa: <br />
+            <input
+              type={"text"}
+              name={"name"}
+              required
+              maxLength={99}
+              value={form.name}
+              onChange={(e) => updateForm("name", e.target.value)}
+            />
+          </label>
+          <label>
+            Opis: <br />
+            <textarea
+              name="description"
+              maxLength={999}
+              value={form.description}
+              onChange={(e) => updateForm("description", e.target.value)}
+            />
+          </label>
+          <label>
+            Price: <br />
+            <input
+              type={"number"}
+              name={"price"}
+              required
+              maxLength={99}
+              value={form.price}
+              onChange={(e) => updateForm("price", Number(e.target.value))}
+            />{" "}
+            <br />
+          </label>
+          <label>
+            Adres URL: <br />
+            <input
+              type={"url"}
+              name={"url"}
+              maxLength={99}
+              value={form.url}
+              onChange={(e) => updateForm("url", e.target.value)}
+            />{" "}
+            <br />
+          </label>
+          <label>
+            Adres Fizyczny na mapie (ulica, miasto): <br />
+            <input
+              name={"address"}
+              maxLength={99}
+              value={form.address}
+              onChange={(e) => updateForm("address", e.target.value)}
+            />{" "}
+            <br />
+          </label>
+        </p>
+
+        <Btn text={"Zapisz"} />
+      </form>
+    </div>
   );
 };
